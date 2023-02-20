@@ -17,7 +17,8 @@
     <input type="radio" name="operator" id="kali" onclick="kali()">kali<br>
     <input type="radio" name="operator" id="bagi" onclick="bagi()">bagi<br><br>
   <label>Hasil:</label>
-    <input type="text" id="hasil" disabled>
+    <input type="text" id="hasil" disabled><br>
+    <button type="button" onclick="resetform()">reset</button>
     <script>
       function ambilNilai()
       {
@@ -39,33 +40,55 @@
       }
 
       function tambah()
-      {
+    {
+       {
         let nilai = ambilNilai();
-        let prosesTambah = 0;
-        for (let a = 0; a < nilai.length; a++)
-        {
-          prosesTambah += parseInt(nilai[a]);
-        }
-        // console.log(prosesTambah);
-        return printHasil(prosesTambah);
-      }
-
+         prosesTambah = parseInt(nilai[0]) + parseInt(nilai[1]);
+       }
+       // console.log(prosesTambah);
+       return printHasil(prosesTambah);
+    }
+      
       function kurang()
       {
-        nilai = ambilNilai();
-        console.log(nilai);
+        let nilai = ambilNilai();
+        {
+          prosesTambah1 = parseInt(nilai[0]) - parseInt(nilai[1]);
+        }
+        //console.log(nilai);
+        return printHasil(prosesTambah1);
       }
 
       function kali()
       {
-        nilai = ambilNilai();
-        console.log(nilai);
+       let nilai = ambilNilai();
+      {
+        prosesTambah2 = parseInt(nilai[0]) * parseInt(nilai[1]);
+      }
+        //console.log(nilai);
+        return printHasil(prosesTambah2);
       }
 
       function bagi()
       {
-        nilai = ambilNilai();
-        console.log(nilai);
+        let nilai = ambilNilai();
+        {
+          prosesTambah3 = parseInt(nilai[0]) / parseInt(nilai[1]);
+        }
+        //console.log(nilai);
+        return printHasil(prosesTambah3);
+      }
+      
+      function resetform()
+      {
+        document.getElementById('input1').value = '';
+        document.getElementById('input2').value = '';
+        document.getElementById('hasil').value = '';
+        document.getElementById('tambah').checked = false;
+        document.getElementById('kurang').checked = false;
+        document.getElementById('kali').checked = false;
+        document.getElementById('bagi').checked = false;
+
       }
     </script>
 </body>
